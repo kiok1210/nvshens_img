@@ -194,7 +194,7 @@ class Capture:
             # 单独抓取一个页面 url = https://www.nvshens.org/g/24816/
             # self.readPageOne('23025')
             # self.readPageSearch('jiemeihua')
-            tags=input('请输入标签：(网址中'/gallery/'后面的部分)')
+            tags=input('请输入标签：(网址中/gallery/后面的部分)')
             self.readPageGallery(tags)
 
 Capture().run()
