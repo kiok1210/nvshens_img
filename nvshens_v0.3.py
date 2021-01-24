@@ -163,7 +163,7 @@ class Capture:
         # 循环打开图片链接,从1开始
         for item in range(1, item_size - 1):
             # 左侧补零 1->001,2->002,……,114->114
-            page = str(item + 1).zfill(3)
+            page = str(item).zfill(3)
             new_page_url = img_mod_url + page + '.' + file_hz
             new_path = path + '/' + page + '.' + file_hz
             print(new_path, '---', new_page_url)
