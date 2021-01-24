@@ -5,8 +5,8 @@ from soup_tool import MyThread
 from time import sleep, ctime
 
 '''
-抓取nvshens.com下高清图片
-目标网站：nvshens.com
+抓取nvshens.org下高清图片
+目标网站：nvshens.org
 依赖工具类：soup_tool
 version:0.1 单个网址链接抓取所有相关图片
 version:0.2 通过标签搜索的方式获取整个标签下所有图片，只获取第一页，翻页V0.3再做
@@ -19,11 +19,11 @@ class Capture:
 
     def __init__(self):
         # referer
-        self.index_page_url = 'http://www.nvshens.com'
+        self.index_page_url = 'http://www.nvshens.org'
         # 搜索页面
-        self.search_page_url = 'https://www.nvshens.com/gallery/:key/'
+        self.search_page_url = 'https://www.nvshens.org/gallery/:key/'
         # 作品内容主页
-        self.one_page_url = 'https://www.nvshens.com/g/:key/'
+        self.one_page_url = 'https://www.nvshens.org/g/:key/'
         # root folder
         self.folder_path = 'nvshens/'
         # 每个线程的沉睡时间，防止反爬
@@ -32,7 +32,7 @@ class Capture:
     def readPageSearch(self, search_key):
         """
        根据输入key读取搜索页面,找寻所有的galleryli_link
-       :param search_key: jiemeihua (代表https://www.nvshens.com/gallery/jiemeihua/)
+       :param search_key: jiemeihua (代表https://www.nvshens.org/gallery/jiemeihua/)
        :return:
        """
         root_folder = self.folder_path + search_key
@@ -70,7 +70,7 @@ class Capture:
     def readPageOne(self, page_one_key, root_folder=None):
         """
        根据输入key读取搜索页面
-       :param page_one_key: 24816 (代表https://www.nvshens.com/g/24816/)
+       :param page_one_key: 24816 (代表https://www.nvshens.org/g/24816/)
        :param root_folder: 根目录
        :return:
        """
@@ -107,9 +107,9 @@ class Capture:
         image_two = image_one.find_next_sibling()
         image_two_url = image_two.get('src')
         print('image_two_url', image_two_url)
-        # 第1张 <img src="https://img.onvshen.com:85/gallery/25366/24816/0.jpg">
-        # 第2张 <img src="https://img.onvshen.com:85/gallery/25366/24816/001.jpg">
-        # 第3张 <img src="https://img.onvshen.com:85/gallery/25366/24816/002.jpg">
+        # 第1张 <img src="https://img.onvshen.org:85/gallery/25366/24816/0.jpg">
+        # 第2张 <img src="https://img.onvshen.org:85/gallery/25366/24816/001.jpg">
+        # 第3张 <img src="https://img.onvshen.org:85/gallery/25366/24816/002.jpg">
 
         print('item_size=====', item_size)
 
@@ -166,7 +166,7 @@ class Capture:
 
     def run(self):
         try:
-            # 单独抓取一个页面 url = https://www.nvshens.com/g/24816/
+            # 单独抓取一个页面 url = https://www.nvshens.org/g/24816/
             # self.readPageOne('25412')
             self.readPageSearch('jiemeihua')
 
