@@ -5,8 +5,8 @@ from soup_tool import MyThread
 from time import sleep, ctime
 
 '''
-抓取nvshens.com下高清图片
-目标网站：nvshens.com
+抓取nvshens.org下高清图片
+目标网站：nvshens.org
 依赖工具类：soup_tool
 version:0.1 单个网址链接抓取所有相关图片
 author:yaowei
@@ -17,9 +17,9 @@ date:2018-04-20
 class Capture:
 
     def __init__(self):
-        self.index_page_url = 'http://www.nvshens.com'
+        self.index_page_url = 'http://www.nvshens.org'
         # 作品内容主页
-        self.one_page_url = 'https://www.nvshens.com/g/:key/'
+        self.one_page_url = 'https://www.nvshens.org/g/:key/'
         # root folder
         self.folder_path = 'nvshens/'
         # 每个线程的沉睡时间
@@ -116,7 +116,7 @@ class Capture:
 
     def run(self):
         try:
-            # url = https://www.nvshens.com/g/24816/
+            # url = https://www.nvshens.org/g/24816/
             # self.readPageFromSearch('25412')
             self.readPageFromSearch('24816')
 
